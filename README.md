@@ -18,7 +18,7 @@ This repository documents practical IT support, identity administration, trouble
 
 | Lab | Status | Skills |
 | --- | --- | --- |
-| [01 — User lifecycle](labs/01-user-lifecycle/README.md) | Walkthrough prepared; execution and evidence pending | User creation, security groups, department transfer, access removal, verification |
+| [01 — User lifecycle](labs/01-user-lifecycle/README.md) | Membership evidence published; remaining validation pending | User creation, security groups, department transfer, access removal, verification |
 | Bulk user creation | Planned | CSV preparation, validation, import troubleshooting |
 | PowerShell automation | Planned | Microsoft Graph, repeatable operations, reporting |
 | Offboarding | Planned | Account disablement, access review, session handling |
@@ -34,4 +34,4 @@ This repository documents practical IT support, identity administration, trouble
 3. Add redacted screenshots and record actual results.
 4. Use the [verification script](scripts/Test-UserLifecycle.ps1) to check the scoped final state.
 
-Scripts and walkthroughs are portfolio examples. No live tenant changes or successful lab outcomes are claimed by this starter. Do not commit passwords, tokens, real client information, or unredacted administrative screenshots.
+Scripts and walkthroughs are portfolio examples. Lab 01 includes supplied, sanitized evidence of the membership transfer; its remaining validation is documented in the walkthrough. Do not commit passwords, tokens, real client information, or unredacted administrative screenshots.

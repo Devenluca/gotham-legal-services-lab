@@ -1,6 +1,6 @@
 # Lab 01 — Microsoft Entra ID user lifecycle
 
-**Status:** Walkthrough prepared; tenant execution, results, and screenshots pending.
+**Status:** Sanitized before-and-after membership evidence published. Department profile, account-enabled state, other-user checks, and PowerShell validation remain pending.
 
 ## Business scenario
 
@@ -15,10 +15,10 @@ Gotham Legal Services needs department-based identity management. Create fiction
 
 ## Initial setup
 
-1. Review [user seed data](../../csv/users-template.csv). John Blake begins in Design; the other two users provide fictional department examples.
+1. Review [user seed data](../../csv/users-template.csv). This is an illustrative planning template, not an export of the captured tenant. In the supplied baseline evidence, Design contains John Blake and Richard Grayson; Department Heads contains Bruce Wayne. John begins with Design membership.
 2. In the Microsoft Entra admin center, open **Entra ID > Users**, create each test user, and set the listed department. Use the tenant's password workflow; never put passwords in this repository.
 3. Open **Entra ID > Groups** and create **Design**, **Marketing**, and **Department Heads** as Security groups with Assigned membership. Leave Microsoft Entra role assignment disabled.
-4. Assign the memberships in [the membership plan](../../csv/membership-plan.csv). Record object IDs privately for verification.
+4. Use [the membership plan](../../csv/membership-plan.csv) as a planning example; it is not the observed tenant roster. Record the actual baseline memberships and object IDs privately for verification.
 5. Capture John's initial department and group memberships. He should belong to Design and not to Marketing or Department Heads.
 
 ## Transfer John Blake
@@ -35,26 +35,61 @@ Gotham Legal Services needs department-based identity management. Create fiction
 | Check | Expected | Actual |
 | --- | --- | --- |
 | John's Department | Marketing | Pending |
-| Direct member of Design | No | Pending |
-| Direct member of Marketing | Yes | Pending |
-| Direct member of Department Heads | Yes | Pending |
+| Direct member of Design | No | Not listed in John's final Groups view (image 07) |
+| Direct member of Marketing | Yes | Listed in John's final Groups view (image 07) |
+| Direct member of Department Heads | Yes | Confirmed in Department Heads Direct members view (image 06) |
 | User remains enabled | Yes | Pending |
 | Other test users' memberships | Unchanged | Pending |
 
 Run [Test-UserLifecycle.ps1](../../scripts/Test-UserLifecycle.ps1) with the exact user and group object IDs. It checks John only; manually compare the other users against your baseline. Record command output privately and publish a redacted excerpt if useful.
 
-## Evidence checklist
+## Screenshot walkthrough: before → change → after
 
-Store reviewed images in [screenshots/01-user-lifecycle](../../screenshots/01-user-lifecycle/README.md).
+These are sanitized copies of supplied screenshots. The sequence follows the scenario's visible states, not independently verified capture timestamps. Black boxes permanently cover user principal names/email addresses, user and group object IDs (including truncated values), and a personal administrator display name/avatar. Fictional company identities and group names remain visible. The images were flattened and saved without source metadata; no original screenshots are committed.
 
-- [ ] `01-users-created.png` — fictional user list
-- [ ] `02-groups-created.png` — group names and types
-- [ ] `03-john-before.png` — Design department and initial membership
-- [ ] `04-john-after.png` — Marketing department
-- [ ] `05-final-memberships.png` — Marketing and Department Heads; no Design
-- [ ] `06-verification.png` — verification results
+### Before: environment and baseline memberships
 
-Add image links after the files exist. Do not mark this lab complete until all acceptance criteria are checked and evidence is reviewed.
+**01 — User overview.** The directory contains fictional company users. This overview does not show John Blake and is not evidence of his creation or enabled state.
+
+![Sanitized directory user overview](../../screenshots/01-user-lifecycle/01-users-overview.png)
+
+**02 — Security groups created.** Department Heads, Design, HR, IT, and Marketing are visible as Security groups with Assigned membership.
+
+![Security groups with Assigned membership](../../screenshots/01-user-lifecycle/02-security-groups-created.png)
+
+**03 — Design baseline.** The Direct members view contains John Blake and Richard Grayson before the transfer.
+
+![Design direct members before transfer](../../screenshots/01-user-lifecycle/03-design-members-before-transfer.png)
+
+**04 — Department Heads baseline.** Bruce Wayne is the sole direct member; John is not yet listed.
+
+![Department Heads before John was added](../../screenshots/01-user-lifecycle/04-department-heads-before-transfer.png)
+
+**05 — John's initial memberships.** John's unfiltered Groups view lists Design only. This records membership, not his Department profile property.
+
+![John Blake with Design membership before transfer](../../screenshots/01-user-lifecycle/05-john-blake-design-membership-before.png)
+
+### Change: Department Heads membership added
+
+**06 — John added to Department Heads.** The Direct members view now contains Bruce Wayne and John Blake. This confirms the membership change, although no add-member dialog or audit event was supplied.
+
+![John Blake added to Department Heads](../../screenshots/01-user-lifecycle/06-department-heads-john-blake-added.png)
+
+### After: final membership state
+
+**07 — Final user Groups view.** John's unfiltered Groups view lists Department Heads and Marketing, with Design no longer listed. This supports the intended department-group transfer and removal of the outdated Design membership. It does not prove removal of independently assigned application access or transitive access.
+
+![John Blake final Marketing and Department Heads memberships](../../screenshots/01-user-lifecycle/07-john-blake-final-memberships.png)
+
+### Remaining verification
+
+- [ ] Capture John's Department profile property showing Marketing.
+- [ ] Verify that John's account remains enabled.
+- [ ] Compare other users' final memberships against the recorded baseline.
+- [ ] Run the read-only verification script and publish reviewed, redacted results.
+- [ ] Record the tenant execution date and actual troubleshooting or lessons learned.
+
+Do not mark the entire lab complete until the remaining acceptance criteria are verified.
 
 ## Troubleshooting notes
 
@@ -66,4 +101,6 @@ For this fictional transfer, restore John's Department to Design, restore Design
 
 ## Results and lessons learned
 
-Pending execution. Add the execution date, actual outcomes, evidence, and observations here.
+The supplied screenshots document John moving from Design-only membership to Marketing and Department Heads, with Design absent from his final Groups view. Department Heads retains Bruce Wayne and adds John. Profile metadata, account status, other users' final memberships, and script execution are not established by these screenshots.
+
+Execution date and operator lessons learned: pending. No troubleshooting incidents have been invented.

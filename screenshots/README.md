@@ -1,5 +1,5 @@
 # Screenshot evidence
 
-Organize evidence by lab. Add only reviewed, redacted screenshots from actual execution. No screenshots are included in this starter.
+Evidence is organized by lab. [Lab 01](01-user-lifecycle/README.md) contains seven reviewed, sanitized screenshots of the user lifecycle scenario.
 
-See [Lab 01 evidence guidance](01-user-lifecycle/README.md).
+Publish only flattened, redacted copies from actual execution. Keep originals, identifiers, credentials, and sensitive tenant information outside this repository.
