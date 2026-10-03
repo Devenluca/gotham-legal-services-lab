@@ -1,0 +1,6 @@
+UserPrincipalName,GroupDisplayName,InitialMember,ExpectedFinalMember
+john.blake@example.invalid,Design,true,false
+john.blake@example.invalid,Marketing,false,true
+john.blake@example.invalid,Department Heads,false,true
+lucius.fox@example.invalid,Design,true,true
+barbara.gordon@example.invalid,Marketing,true,true
