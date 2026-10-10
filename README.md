@@ -21,7 +21,7 @@ This repository documents practical IT support, identity administration, trouble
 | [01 — User lifecycle](labs/01-user-lifecycle/README.md) | Membership evidence published; remaining validation pending | User creation, security groups, department transfer, access removal, verification |
 | [02 — Bulk user creation](labs/02-bulk-user-creation/README.md) | Import failures and subsequent creation documented | CSV preparation, validation, import troubleshooting |
 | [03 — PowerShell automation attempt](labs/03-powershell-user-automation/README.md) | Blocked by local script execution policy | Microsoft Graph, repeatable operations, reporting |
-| [04 — User offboarding](labs/04-user-offboarding/README.md) | Disablement and revocation evidenced; group removal verification pending | Account disablement, access review, session handling |
+| [04 — User offboarding](labs/04-user-offboarding/README.md) | Offboarding workflow documented with sanitized evidence | Account disablement, access review, session handling |
 | Password resets | Planned | Identity verification, secure reset workflows |
 | Group management | Planned | Membership administration and access troubleshooting |
 | Microsoft 365 administration | Planned | Service administration and licensing |

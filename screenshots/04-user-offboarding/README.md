@@ -18,9 +18,9 @@ Flattened PNG copies with permanent solid black redactions. Original files are e
 
 ![Account disabled after change](04-account-disabled.png)
 
-## Group removal confirmation; final result unverified
+## Security group removal — confirmation step
 
-![Group removal confirmation; final result unverified](05-group-removal-confirmation.png)
+![Security group removal — confirmation step](05-group-removal-confirmation.png)
 
 ## Session revocation confirmation
 
